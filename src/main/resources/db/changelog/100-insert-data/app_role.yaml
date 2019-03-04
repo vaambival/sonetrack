@@ -1,0 +1,16 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create_app_role_data
+      author: vkurov
+      changes:
+        - insert:
+            columns:
+              - column: { name: role_id, value: 101 }
+              - column: { name: role_name, value: 'ROLE_ADMIN' }
+            tableName: app_role
+        - insert:
+            columns:
+              - column: { name: role_id, value: 102 }
+              - column: { name: role_name, value: 'ROLE_USER' }
+            tableName: app_role

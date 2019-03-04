@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-role-constraints
+      author: vkurov
+      changes:
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: id
+          tableName: user_role
+
+      - addPrimaryKey:
+          columnNames: id
+          constraintName: pk_user_role
+          tableName: user_role
+
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: user_id
+          tableName: user_role
+
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: role_id
+          tableName: user_role

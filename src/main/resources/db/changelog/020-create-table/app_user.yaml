@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-app-user-table
+      author: vkurov
+      changes:
+      - createTable:
+          columns:
+          - column:
+              autoIncrement: true
+              name: user_id
+              type: bigint
+          - column:
+              name: user_name
+              type: nvarchar(36)
+          - column:
+              name: first_name
+              type: nvarchar(36)
+          - column:
+              name: second_name
+              type: nvarchar(36)
+          - column:
+              name: last_name
+              type: nvarchar(36)
+          - column:
+              name: email
+              type: nvarchar(72)
+          - column:
+              name: encryted_password
+              type: nvarchar(128)
+          - column:
+              name: enabled
+              type: boolean
+          tableName: app_user

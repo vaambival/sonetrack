@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-session-constraints
+      author: vkurov
+      changes:
+      - addNotNullConstraint:
+          columnDataType: char(36)
+          columnName: primary_id
+          tableName: user_session
+
+      - addNotNullConstraint:
+          columnDataType: char(36)
+          columnName: session_id
+          tableName: user_session
+
+      - addPrimaryKey:
+          columnNames: primary_id
+          constraintName: pk_user_session
+          tableName: user_session
+
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: creation_time
+          tableName: user_session
+
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: last_access_time
+          tableName: user_session
+
+      - addNotNullConstraint:
+          columnDataType: int
+          columnName: max_inactive_interval
+          tableName: user_session
+
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: expiry_time
+          tableName: user_session
+
+      - createIndex:
+          columns:
+          - column:
+              name: last_access_time
+          indexName: idx_user_session_last_access_time
+          tableName: user_session

@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-app-role-table
+      author: vkurov
+      changes:
+      - createTable:
+          columns:
+          - column:
+              autoIncrement: true
+              name: role_id
+              type: bigint
+          - column:
+              name: role_name
+              type: nvarchar(30)
+          tableName: app_role

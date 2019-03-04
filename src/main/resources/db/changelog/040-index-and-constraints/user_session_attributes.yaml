@@ -1,0 +1,36 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create-user-session-attributes-constraints
+      author: vkurov
+      changes:
+        - addNotNullConstraint:
+            columnDataType: char(36)
+            columnName: session_primary_id
+            tableName: user_session_attributes
+
+        - addNotNullConstraint:
+            columnDataType: varchar(200)
+            columnName: attribute_name
+            tableName: user_session_attributes
+
+        - addPrimaryKey:
+            columnNames: session_primary_id, attribute_name
+            constraintName: pk_user_session_attributes
+            tableName: user_session_attributes
+
+        - addNotNullConstraint:
+            columnDataType: image
+            columnName: attribute_bytes
+            tableName: user_session_attributes
+
+  - changeSet:
+      id: create-user-session-attributes-indexes
+      author: vkurov
+      changes:
+        - createIndex:
+            columns:
+            - column:
+                name: session_primary_id
+            indexName: idx_user_session_attributes_session_id
+            tableName: user_session_attributes

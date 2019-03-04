@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-app-role-constraints
+      author: vkurov
+      changes:
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: role_id
+          tableName: app_role
+
+      - addPrimaryKey:
+          columnNames: role_id
+          constraintName: pk_app_role
+          tableName: app_role
+
+      - addNotNullConstraint:
+          columnDataType: nvarchar(30)
+          columnName: role_name
+          tableName: app_role
+
+      - addUniqueConstraint:
+          columnDataType: nvarchar(30)
+          columnNames: role_name
+          tableName: app_role

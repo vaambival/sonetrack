@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-app-user-constraints
+      author: vkurov
+      changes:
+      - addNotNullConstraint:
+          columnDataType: bigint
+          columnName: user_id
+          tableName: app_user
+
+      - addPrimaryKey:
+          columnNames: user_id
+          constraintName: pk_app_user
+          tableName: app_user
+
+      - addNotNullConstraint:
+          columnDataType: nvarchar(36)
+          columnName: user_name
+          tableName: app_user
+
+      - addUniqueConstraint:
+          columnDataType: nvarchar(36)
+          columnNames: user_name
+          tableName: app_user
+
+      - addNotNullConstraint:
+          columnDataType: nvarchar(128)
+          columnName: encryted_password
+          tableName: app_user
+
+      - addNotNullConstraint:
+          columnDataType: boolean
+          columnName: enabled
+          tableName: app_user

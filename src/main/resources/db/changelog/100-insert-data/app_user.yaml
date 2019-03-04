@@ -1,0 +1,17 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create_app_user_data
+      author: vkurov
+      changes:
+        - insert:
+            columns:
+              - column: { name: user_id, value: 101 }
+              - column: { name: user_name, value: 'Fedor' }
+              - column: { name: first_name, value: 'Fedor' }
+              - column: { name: second_name, value: 'Fedor' }
+              - column: { name: last_name, value: 'Fedor' }
+              - column: { name: email, value: 'Fedor@mail.com' }
+              - column: { name: encryted_password, value: '$2a$10$s8Owtg2AR7Jx7WqLZ9Q1YegxVvUImG/UrJdVNQZwdUzF6tqvPkmNO' }
+              - column: { name: enabled, value: true }
+            tableName: app_user

@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-role-foreign-keys
+      author: vkurov
+      changes:
+      - addForeignKeyConstraint:
+          baseColumnNames: user_id
+          baseTableName: user_role
+          constraintName: fk_user_role_user_id
+          deferrable: false
+          initiallyDeferred: false
+          onDelete: CASCADE
+          onUpdate: CASCADE
+          referencedColumnNames: user_id
+          referencedTableName: app_user
+
+      - addForeignKeyConstraint:
+          baseColumnNames: role_id
+          baseTableName: user_role
+          constraintName: fk_user_role_role_id
+          deferrable: false
+          initiallyDeferred: false
+          onDelete: CASCADE
+          onUpdate: CASCADE
+          referencedColumnNames: role_id
+          referencedTableName: app_role

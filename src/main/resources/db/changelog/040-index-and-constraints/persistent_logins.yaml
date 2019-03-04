@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-persistent-logins-constraints
+      author: vkurov
+      changes:
+      - addNotNullConstraint:
+          columnDataType: nvarchar(64)
+          columnName: username
+          tableName: persistent_logins
+
+      - addNotNullConstraint:
+          columnDataType: nvarchar(64)
+          columnName: series
+          tableName: persistent_logins
+
+      - addNotNullConstraint:
+          columnDataType: nvarchar(64)
+          columnName: token
+          tableName: persistent_logins
+
+      - addNotNullConstraint:
+          columnDataType: timestamp with timezone
+          columnName: last_used
+          tableName: persistent_logins

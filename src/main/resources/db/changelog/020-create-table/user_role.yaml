@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-role-table
+      author: vkurov
+      changes:
+      - createTable:
+          columns:
+          - column:
+              autoIncrement: true
+              name: id
+              type: bigint
+          - column:
+              name: user_id
+              type: bigint
+          - column:
+              name: role_id
+              type: bigint
+          tableName: user_role

@@ -1,0 +1,18 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create-user-session-attributes-table
+      author: vkurov
+      changes:
+      - createTable:
+          columns:
+          - column:
+              name: session_primary_id
+              type: char(36)
+          - column:
+              name: attribute_name
+              type: varchar(200)
+          - column:
+              name: attribute_bytes
+              type: image
+          tableName: user_session_attributes

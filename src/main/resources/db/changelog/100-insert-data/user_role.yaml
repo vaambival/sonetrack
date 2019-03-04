@@ -1,0 +1,18 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create_user_role_data
+      author: vkurov
+      changes:
+        - insert:
+            columns:
+              - column: { name: id, value: 1 }
+              - column: { name: user_id, value: 101 }
+              - column: { name: role_id, value: 101 }
+            tableName: user_role
+        - insert:
+            columns:
+              - column: { name: id, value: 2 }
+              - column: { name: user_id, value: 101 }
+              - column: { name: role_id, value: 102 }
+            tableName: user_role

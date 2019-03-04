@@ -1,0 +1,16 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create-spring-session-attributes-foreign-keys
+      author: vkurov
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: session_primary_id
+            baseTableName: user_session_attributes
+            constraintName: fk_user_session_attributes_user_session_primary_id
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+            referencedColumnNames: session_primary_id
+            referencedTableName: user_session

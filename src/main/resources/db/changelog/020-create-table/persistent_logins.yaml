@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-persistent-logins-table
+      author: vkurov
+      changes:
+      - createTable:
+          columns:
+          - column:
+              name: username
+              type: nvarchar(64)
+          - column:
+              name: series
+              type: nvarchar(64)
+          - column:
+              name: token
+              type: nvarchar(64)
+          - column:
+              name: last_used
+              type: timestamp with timezone
+          tableName: persistent_logins
