@@ -5,8 +5,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.session.SessionInformation;
-import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.stereotype.Service;
 import ru.vkurov.sonetrack.service.AuthenticationService;
 
@@ -14,7 +12,6 @@ import ru.vkurov.sonetrack.service.AuthenticationService;
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationProvider provider;
-    private final SessionRegistry sessionRegistry;
     
     @Override
     public void authenticate(String username, String password) {
