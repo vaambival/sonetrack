@@ -6,11 +6,7 @@ import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.vkurov.sonetrack.service.AuthenticationService;
 import ru.vkurov.sonetrack.web.constants.Urls;
 import ru.vkurov.sonetrack.web.dto.user.AuthenticationRequest;
@@ -24,8 +20,9 @@ public class AuthorizationController {
     @PostMapping
     public void login(@RequestBody AuthenticationRequest authenticationRequest,
                          HttpServletRequest request, HttpServletResponse response) {
-        String userName = authenticationRequest.getUsername();
-        authenticationService.authenticate(userName, authenticationRequest.getPassword());
+        var userName = authenticationRequest.getUsername();
+        var password = authenticationRequest.getPassword();
+        authenticationService.authenticate(userName, password);
         
         request.getSession().setAttribute(
                 HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());

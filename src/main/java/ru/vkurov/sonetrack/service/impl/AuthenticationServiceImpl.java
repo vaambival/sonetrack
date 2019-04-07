@@ -15,7 +15,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     
     @Override
     public void authenticate(String username, String password) {
-        Authentication authentication = new UsernamePasswordAuthenticationToken(username, password);
+        var authentication = new UsernamePasswordAuthenticationToken(username, password);
         provider.authenticate(authentication);
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }

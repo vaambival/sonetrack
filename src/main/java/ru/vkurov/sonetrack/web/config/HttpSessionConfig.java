@@ -13,21 +13,25 @@ import org.springframework.session.web.http.HttpSessionStrategy;
 @EnableJdbcHttpSession(tableName = "USER_SESSION",
         maxInactiveIntervalInSeconds = HttpSessionConfig.MAX_INACTIVE_INTERVAL_IN_SECONDS)
 public class HttpSessionConfig {
-    
+    //TODO: вынести в конфиги
     static final int MAX_INACTIVE_INTERVAL_IN_SECONDS = 3600; //1 hour
     private static final int SESSION_COOKIE_MAX_AGE_IN_SECONDS = 3600 * 24 * 7; // 1 week
     
     @Bean
     public HttpSessionStrategy httpSessionStrategy() {
-        CookieHttpSessionStrategy httpSessionStrategy = new CookieHttpSessionStrategy();
+        var httpSessionStrategy = new CookieHttpSessionStrategy();
         httpSessionStrategy.setCookieSerializer(cookieSerializer());
         return httpSessionStrategy;
     }
     
     @Bean
     public CookieSerializer cookieSerializer() {
-        DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
+        var cookieSerializer = new DefaultCookieSerializer();
         cookieSerializer.setCookieMaxAge(SESSION_COOKIE_MAX_AGE_IN_SECONDS);
+        cookieSerializer.setCookieName("JSESSIONID");
+        cookieSerializer.setCookiePath("/");
+        cookieSerializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
+        cookieSerializer.setUseHttpOnlyCookie(false);
         return cookieSerializer;
     }
 }

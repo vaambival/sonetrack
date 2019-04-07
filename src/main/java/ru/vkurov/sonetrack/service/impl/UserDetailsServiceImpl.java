@@ -25,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         log.info("Load UserEntity");
 
-        UserEntity user = userRepository.findUserByUserName(userName);
+        var user = userRepository.findUserByUserName(userName);
         
         if (user == null) {
             log.info("UserEntity was not found");
@@ -34,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         
         log.info("UserEntity is successfully loaded");
     
-        List<RoleEntity> roles = userRepository.findUserRoles(userName);
+        var roles = userRepository.findUserRoles(userName);
         List<GrantedAuthority> grants = new ArrayList<>();
         if (roles != null) {
             roles.forEach(role -> grants.add(new SimpleGrantedAuthority(role.getRoleName().name())));
