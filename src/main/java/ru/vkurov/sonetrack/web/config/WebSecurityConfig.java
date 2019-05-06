@@ -1,5 +1,6 @@
 package ru.vkurov.sonetrack.web.config;
 
+import java.util.Arrays;
 import java.util.Collections;
 import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,9 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private static final String DEFAULT_PORT = "http://localhost:8081";
+    //TODO: в конфиги
+    private static final String DEFAULT_PORT = "http://localhost:8080";
+    private static final String DASHA = "http://192.168.1.114:8080";
 
     private final UserDetailsService userDetailsService;
     private final DataSource dataSource;
@@ -55,18 +58,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                     .antMatchers("api/v1/login").permitAll()
-                    .antMatchers("/home").authenticated()
-                    .antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+                    .antMatchers("/api/v1/task/**").authenticated()
                 .and()
-                    .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                    //TODO: вынести в конфиги
-                    .maximumSessions(10)
-                    .maxSessionsPreventsLogin(false)
-                    .sessionRegistry(sessionRegistry())
-                .and()
-                    .sessionFixation().migrateSession()
-                .and()
+//                    .sessionManagement()
+//                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+//                    TODO: вынести в конфиги
+//                    .maximumSessions(10)
+//                    .maxSessionsPreventsLogin(false)
+//                    .sessionRegistry(sessionRegistry())
+//                .and()
+//                    .sessionFixation().migrateSession()
+//                .and()
                     .httpBasic()
                 .and()
                     .rememberMe()
@@ -83,7 +85,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         config.setAllowCredentials(true);
         // *** URL below needs to match the Vue client URL and port ***
         //TODO: вынести в конфиги
-        config.setAllowedOrigins(Collections.singletonList(DEFAULT_PORT));
+        config.setAllowedOrigins(Arrays.asList(DEFAULT_PORT, DASHA));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         source.registerCorsConfiguration("/**", config);

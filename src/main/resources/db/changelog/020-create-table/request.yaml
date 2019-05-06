@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-request-table
+      author: vkurov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+              - column:
+                  name: description
+                  type: nvarchar(500)
+              - column:
+                  name: source
+                  type: int
+              - column:
+                  name: like_count
+                  type: int
+              - column:
+                  name: comment_count
+                  type: int
+              - column:
+                  name: link
+                  type: nvarchar(256)
+              - column:
+                  name: status
+                  type: int
+              - column:
+                  name: created
+                  type: timestamp
+            tableName: request

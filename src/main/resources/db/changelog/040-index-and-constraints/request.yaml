@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-request-constraints
+      author: vkurov
+      changes:
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: id
+            tableName: request
+
+        - addPrimaryKey:
+            columnNames: id
+            constraintName: pk_request
+            tableName: request
+
+        - addNotNullConstraint:
+            columnDataType: int
+            columnName: source
+            tableName: request
+
+        - addNotNullConstraint:
+            columnDataType: nvarchar(500)
+            columnName: description
+            tableName: request
+
+        - addNotNullConstraint:
+            columnDataType: nvarchar(256)
+            columnName: link
+            tableName: request
+
+        - addNotNullConstraint:
+            columnDataType: int
+            columnName: status
+            tableName: request

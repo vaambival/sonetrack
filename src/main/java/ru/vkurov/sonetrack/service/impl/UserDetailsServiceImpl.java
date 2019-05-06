@@ -11,8 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.vkurov.sonetrack.data.entity.RoleEntity;
-import ru.vkurov.sonetrack.data.entity.UserEntity;
 import ru.vkurov.sonetrack.data.repository.UserRepository;
 
 @Service
@@ -25,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         log.info("Load UserEntity");
 
-        var user = userRepository.findUserByUserName(userName);
+        var user = userRepository.findByUserName(userName);
         
         if (user == null) {
             log.info("UserEntity was not found");

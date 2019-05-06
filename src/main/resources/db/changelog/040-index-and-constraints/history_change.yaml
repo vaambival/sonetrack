@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-history_change-constraints
+      author: vkurov
+      changes:
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: id
+            tableName: history_change
+
+        - addPrimaryKey:
+            columnNames: id
+            constraintName: pk_history_change
+            tableName: history_change

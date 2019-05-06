@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-history-foreign-keys
+      author: vkurov
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: problem_id, problem_prefix
+            baseTableName: history
+            constraintName: fk_history_problem_id_problem_prefix
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id, prefix
+            referencedTableName: problem
+
+        - addForeignKeyConstraint:
+            baseColumnNames: history_changes
+            baseTableName: history
+            constraintName: fk_history_history_changes
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: history_change
+
+        - addForeignKeyConstraint:
+              baseColumnNames: author
+              baseTableName: history
+              constraintName: fk_history_author
+              deferrable: false
+              initiallyDeferred: false
+              onDelete: CASCADE
+              onUpdate: CASCADE
+              referencedColumnNames: user_id
+              referencedTableName: app_user

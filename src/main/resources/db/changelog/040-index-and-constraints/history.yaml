@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-history-constraints
+      author: vkurov
+      changes:
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: id
+            tableName: history
+
+        - addPrimaryKey:
+            columnNames: id
+            constraintName: pk_history
+            tableName: history
+
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: problem_id
+            tableName: history
+
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: problem_prefix
+            tableName: history
+
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: history_changes
+            tableName: history
+
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: author
+            tableName: history
+
+        - addDefaultValue:
+            columnDataType: timestamp
+            columnName: operation_date
+            defaultValueComputed: CURRENT_TIMESTAMP()
+            tableName: history

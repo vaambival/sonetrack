@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-problem-constraints
+      author: vkurov
+      changes:
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: id
+            tableName: problem
+
+        - addNotNullConstraint:
+            columnDataType: nvarchar(10)
+            columnName: prefix
+            tableName: problem
+
+        - addPrimaryKey:
+            columnNames: id, prefix
+            constraintName: pk_problem
+            tableName: problem
+
+        - addNotNullConstraint:
+            columnDataType: nvarchar(100)
+            columnName: name
+            tableName: problem
+
+        - addNotNullConstraint:
+            columnDataType: int
+            columnName: type
+            tableName: problem
+
+        - addDefaultValue:
+            columnDataType: timestamp
+            columnName: created_date
+            defaultValueComputed: CURRENT_TIMESTAMP()
+            tableName: problem
+
+        - addNotNullConstraint:
+            columnDataType: int
+            columnName: author
+            tableName: problem
+
+        - addNotNullConstraint:
+            columnDataType: int
+            columnName: status
+            tableName: problem

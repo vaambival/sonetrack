@@ -3,10 +3,10 @@ package ru.vkurov.sonetrack.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
-import org.springframework.session.web.http.CookieHttpSessionStrategy;
+import org.springframework.session.web.http.CookieHttpSessionIdResolver;
 import org.springframework.session.web.http.CookieSerializer;
 import org.springframework.session.web.http.DefaultCookieSerializer;
-import org.springframework.session.web.http.HttpSessionStrategy;
+import org.springframework.session.web.http.HttpSessionIdResolver;
 
 
 @Configuration
@@ -18,8 +18,8 @@ public class HttpSessionConfig {
     private static final int SESSION_COOKIE_MAX_AGE_IN_SECONDS = 3600 * 24 * 7; // 1 week
     
     @Bean
-    public HttpSessionStrategy httpSessionStrategy() {
-        var httpSessionStrategy = new CookieHttpSessionStrategy();
+    public HttpSessionIdResolver httpSessionStrategy() {
+        var httpSessionStrategy = new CookieHttpSessionIdResolver();
         httpSessionStrategy.setCookieSerializer(cookieSerializer());
         return httpSessionStrategy;
     }

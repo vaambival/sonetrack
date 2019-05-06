@@ -1,0 +1,39 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create_request_data
+      author: vkurov
+      changes:
+        - insert:
+            columns:
+              - column: { name: id, value: 1 }
+              - column: { name: description, value: 'Это тестовая запись из ВК' }
+              - column: { name: source, value: 0 }
+              - column: { name: like_count, value: 99 }
+              - column: { name: comment_count, value: 10 }
+              - column: { name: link, value: 'http://link.com' }
+              - column: { name: status, value: 0}
+              - column: { name: created, value: '2019-03-03T11:11:11'}
+            tableName: request
+        - insert:
+            columns:
+              - column: { name: id, value: 2 }
+              - column: { name: description, value: 'Это тестовая запись из TWITTER' }
+              - column: { name: source, value: 1 }
+              - column: { name: like_count, value: 99 }
+              - column: { name: comment_count, value: 10 }
+              - column: { name: link, value: 'http://link.com' }
+              - column: { name: status, value: 0}
+              - column: { name: created, value: '2019-02-03T11:11:11'}
+            tableName: request
+        - insert:
+            columns:
+              - column: { name: id, value: 3 }
+              - column: { name: description, value: 'Это тестовая запись из INSTA' }
+              - column: { name: source, value: 2 }
+              - column: { name: like_count, value: 99 }
+              - column: { name: comment_count, value: 10 }
+              - column: { name: link, value: 'http://link.com' }
+              - column: { name: status, value: 0}
+              - column: { name: created, value: '2019-01-03T11:11:11'}
+            tableName: request

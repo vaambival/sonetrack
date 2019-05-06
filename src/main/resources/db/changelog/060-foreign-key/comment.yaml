@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-comment-foreign-keys
+      author: vkurov
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: author
+            baseTableName: comment
+            constraintName: fk_comment_author
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: user_id
+            referencedTableName: app_user
+
+        - addForeignKeyConstraint:
+            baseColumnNames: problem_id, prefix
+            baseTableName: comment
+            constraintName: fk_comment_problem
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id, prefix
+            referencedTableName: problem

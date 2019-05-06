@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-problem-table
+      author: vkurov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  name: id
+                  type: bigint
+              - column:
+                  name: prefix
+                  type: nvarchar(10)
+              - column:
+                  name: name
+                  type: nvarchar(100)
+              - column:
+                  name: type
+                  type: int
+              - column:
+                  name: created_date
+                  type: timestamp
+              - column:
+                  name: author
+                  type: bigint
+              - column:
+                  name: status
+                  type: int
+              - column:
+                  name: executor
+                  type: bigint
+              - column:
+                  name: request
+                  type: bigint
+              - column:
+                  name: description
+                  type: nvarchar
+              - column:
+                  name: stage
+                  type: int
+            tableName: problem

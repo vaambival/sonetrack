@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-comment-table
+      author: vkurov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  name: id
+                  type: bigint
+              - column:
+                  name: author
+                  type: bigint
+              - column:
+                  name: created
+                  type: timestamp
+              - column:
+                  name: text
+                  type: nvarchar
+              - column:
+                  name: problem_id
+                  type: bigint
+              - column:
+                  name: prefix
+                  type: nvarchar(10)
+            tableName: comment

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import ru.vkurov.sonetrack.common.RoleName;
+import ru.vkurov.sonetrack.web.dto.role.RoleDto;
 
 @Getter
 @Setter
@@ -17,5 +18,5 @@ public class UserDto {
     private String lastName;
 
     private String email;
-    private List<RoleName> roles;
+    private List<RoleDto> roles;
 }

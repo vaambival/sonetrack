@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-comment-constraints
+      author: vkurov
+      changes:
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: id
+            tableName: comment
+
+        - addPrimaryKey:
+            columnNames: id
+            constraintName: pk_comment
+            tableName: comment
+
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: author
+            tableName: comment
+
+        - addDefaultValue:
+            columnDataType: timestamp
+            columnName: created
+            defaultValueComputed: CURRENT_TIMESTAMP()
+            tableName: comment
+
+        - addNotNullConstraint:
+            columnDataType: nvarchar
+            columnName: text
+            tableName: comment
+
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: problem_id
+            tableName: comment
+
+        - addNotNullConstraint:
+            columnDataType: nvarchar(10)
+            columnName: prefix
+            tableName: comment

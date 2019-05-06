@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-problem-foreign-keys
+      author: vkurov
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: author
+            baseTableName: problem
+            constraintName: fk_problem_author
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: user_id
+            referencedTableName: app_user
+
+        - addForeignKeyConstraint:
+            baseColumnNames: executor
+            baseTableName: problem
+            constraintName: fk_problem_executor
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: user_id
+            referencedTableName: app_user
+
+        - addForeignKeyConstraint:
+            baseColumnNames: request
+            baseTableName: problem
+            constraintName: fk_problem_request
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: CASCADE
+            onUpdate: CASCADE
+            referencedColumnNames: id
+            referencedTableName: request

@@ -12,5 +12,5 @@ databaseChangeLog:
             initiallyDeferred: false
             onDelete: CASCADE
             onUpdate: NO ACTION
-            referencedColumnNames: session_primary_id
+            referencedColumnNames: primary_id
             referencedTableName: user_session

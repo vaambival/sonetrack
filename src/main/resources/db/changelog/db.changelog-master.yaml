@@ -7,6 +7,11 @@ databaseChangeLog:
   - include: { relativeToChangelogFile: true, file: 020-create-table/user_role.yaml }
   - include: { relativeToChangelogFile: true, file: 020-create-table/user_session.yaml }
   - include: { relativeToChangelogFile: true, file: 020-create-table/user_session_attributes.yaml }
+  - include: { relativeToChangelogFile: true, file: 020-create-table/comment.yaml }
+  - include: { relativeToChangelogFile: true, file: 020-create-table/history.yaml }
+  - include: { relativeToChangelogFile: true, file: 020-create-table/history_change.yaml }
+  - include: { relativeToChangelogFile: true, file: 020-create-table/problem.yaml }
+  - include: { relativeToChangelogFile: true, file: 020-create-table/request.yaml }
 
   # Index And Constraints
   - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/app_role.yaml }
@@ -15,11 +20,21 @@ databaseChangeLog:
   - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/user_role.yaml }
   - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/user_session.yaml }
   - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/user_session_attributes.yaml }
+  - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/comment.yaml }
+  - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/history.yaml }
+  - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/history_change.yaml }
+  - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/problem.yaml }
+  - include: { relativeToChangelogFile: true, file: 040-index-and-constraints/request.yaml }
 
   # Foreign Keys
   - include: { relativeToChangelogFile: true, file: 060-foreign-key/user_role.yaml }
+  - include: { relativeToChangelogFile: true, file: 060-foreign-key/comment.yaml }
+  - include: { relativeToChangelogFile: true, file: 060-foreign-key/history.yaml }
+  - include: { relativeToChangelogFile: true, file: 060-foreign-key/problem.yaml }
+  - include: { relativeToChangelogFile: true, file: 060-foreign-key/user_session_attributes.yaml }
 
   # Insert data
   - include: { relativeToChangelogFile: true, file: 100-insert-data/app_role.yaml }
   - include: { relativeToChangelogFile: true, file: 100-insert-data/app_user.yaml }
   - include: { relativeToChangelogFile: true, file: 100-insert-data/user_role.yaml }
+  - include: { relativeToChangelogFile: true, file: 100-insert-data/request.yaml }

@@ -8,7 +8,7 @@ import ru.vkurov.sonetrack.data.entity.RoleEntity;
 import ru.vkurov.sonetrack.data.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
-    UserEntity findUserByUserName(String userName);
+    UserEntity findByUserName(String userName);
 
     @Query("Select roles from UserEntity user JOIN user.roles roles WHERE user.userName = :userName")
     List<RoleEntity> findUserRoles(@Param("userName") String userName);

@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-history_change-table
+      author: vkurov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  name: id
+                  type: bigint
+              - column:
+                  name: old_name
+                  type: nvarchar(100)
+              - column:
+                  name: new_name
+                  type: nvarchar(100)
+              - column:
+                  name: old_status
+                  type: int
+              - column:
+                  name: new_status
+                  type: int
+              - column:
+                  name: old_executor
+                  type: bigint
+              - column:
+                  name: new_executor
+                  type: bigint
+              - column:
+                  name: old_stage
+                  type: int
+              - column:
+                  name: new_stage
+                  type: int
+            tableName: history_change
