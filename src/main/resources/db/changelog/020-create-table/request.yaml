@@ -10,7 +10,7 @@ databaseChangeLog:
                   type: bigint
               - column:
                   name: description
-                  type: nvarchar(500)
+                  type: text
               - column:
                   name: source
                   type: int

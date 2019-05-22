@@ -14,9 +14,7 @@ import ru.vkurov.sonetrack.common.SourceType;
 @Setter
 @EqualsAndHashCode(of = "id")
 public class RequestEntity {
-    //TODO: может GUID
     @Id
-    @GeneratedValue
     @Column(name = "id")
     private Long id;
 

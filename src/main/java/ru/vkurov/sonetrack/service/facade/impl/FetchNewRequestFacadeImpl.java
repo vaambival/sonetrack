@@ -2,6 +2,7 @@ package ru.vkurov.sonetrack.service.facade.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import ru.vkurov.sonetrack.common.RequestStatus;
 import ru.vkurov.sonetrack.service.client.RestClient;
 import ru.vkurov.sonetrack.service.config.SoneTrackConverterSettings;
 import ru.vkurov.sonetrack.service.facade.FetchNewRequestFacade;
@@ -19,8 +20,11 @@ public class FetchNewRequestFacadeImpl implements FetchNewRequestFacade {
 
     @Override
     public void fetchNewRequests() {
-        var requestDtos = restClient.getNewRequests(soneTrackConverterSettings.getUrl().getTrackUrl());
-        var requests = requestMapper.toEntities(requestDtos);
-        requestService.saveAll(requests);
+        for (var query : soneTrackConverterSettings.getQueries()) {
+            var requestDtos = restClient.getNewRequests(soneTrackConverterSettings.getUrl().getTrackUrl(), query);
+            requestDtos.forEach(requestDto -> requestDto.setStatus(RequestStatus.NEW));
+            var requests = requestMapper.toEntities(requestDtos);
+            requestService.saveAll(requests);
+        }
     }
 }

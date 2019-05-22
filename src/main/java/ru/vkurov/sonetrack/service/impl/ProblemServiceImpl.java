@@ -119,7 +119,6 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     private void fillProblem(ProblemEntity problem, ProblemCreateRequest request) {
-        //TODO: определять автоматически
         var author = userServiceInternal.findCurrentUser();
         UserEntity executor = null;
         if (Objects.nonNull(request.getExecutorId())) {

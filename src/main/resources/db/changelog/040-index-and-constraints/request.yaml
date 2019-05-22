@@ -19,7 +19,7 @@ databaseChangeLog:
             tableName: request
 
         - addNotNullConstraint:
-            columnDataType: nvarchar(500)
+            columnDataType: text
             columnName: description
             tableName: request
 
