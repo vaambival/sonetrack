@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://ec2-54-228-207-163.eu-west-1.compute.amazonaws.com:5432/d3sl39uedsu61q
-    username: mnzglfvlallppm
-    password: f59ff196fe1e6531413942a8b46493c37aae594dbb7fe6ef81e382b02624b417
+    url: jdbc:postgresql://localhost:5433/sonetrack
+    username: postgres
+    password: password
 
   jpa:
     show-sql: true
@@ -22,7 +22,7 @@ spring:
 
 converter:
   url:
-    track-url: http://track-converter.herokuapp.com/get-new-requests
+    track-url: http://192.168.1.132:8082/get-new-requests
   queries:
     - магазин магнит просрочка
     - магнит тухлятина
@@ -34,6 +34,10 @@ logging:
         type:
           descriptor:
             sql: trace
+
+server:
+  address: 192.168.1.132
+  port: 8081
 
 scheduler:
   fetch-new-request:
