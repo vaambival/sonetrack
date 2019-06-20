@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //TODO: в конфиги
     private static final String DEFAULT_PORT = "http://localhost:8080";
     private static final String DASHA = "http://192.168.1.114:8080";
+    private static final String HEROKU = "https://sonetrack-front.herokuapp.com";
 
     private final UserDetailsService userDetailsService;
     private final DataSource dataSource;
@@ -85,7 +86,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         config.setAllowCredentials(true);
         // *** URL below needs to match the Vue client URL and port ***
         //TODO: вынести в конфиги
-        config.setAllowedOrigins(Arrays.asList(DEFAULT_PORT, DASHA));
+        config.setAllowedOrigins(Arrays.asList(DEFAULT_PORT, DASHA, HEROKU));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         source.registerCorsConfiguration("/**", config);
