@@ -21,7 +21,9 @@ public class FetchNewRequestFacadeImpl implements FetchNewRequestFacade {
     @Override
     public void fetchNewRequests() {
         for (var query : soneTrackConverterSettings.getQueries()) {
-            var requestDtos = restClient.getNewRequests(soneTrackConverterSettings.getUrl().getTrackUrl(), query);
+            var requestDtos = restClient.getNewRequests(
+                soneTrackConverterSettings.getUrl().getTrackUrl(), query
+            );
             requestDtos.forEach(requestDto -> requestDto.setStatus(RequestStatus.NEW));
             var requests = requestMapper.toEntities(requestDtos);
             requestService.saveAll(requests);

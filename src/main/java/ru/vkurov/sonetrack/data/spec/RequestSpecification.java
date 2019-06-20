@@ -24,7 +24,7 @@ public class RequestSpecification {
 
     public static Specification<RequestEntity> hasCommentsCountBiggerThan(int minCount) {
         return (root, query, criteriaBuilder) ->
-            criteriaBuilder.greaterThanOrEqualTo(root.get("comment_count"), minCount);
+            criteriaBuilder.greaterThanOrEqualTo(root.get("commentCount"), minCount);
     }
 
     public static Specification<RequestEntity> hasLikesCountBiggerThan(int minLikes) {

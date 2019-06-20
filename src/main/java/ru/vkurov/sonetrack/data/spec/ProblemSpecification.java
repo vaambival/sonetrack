@@ -55,6 +55,7 @@ public class ProblemSpecification {
     }
 
     public static Specification<ProblemEntity> nullExecutor() {
-        return (root, query, criteriaBuilder) -> criteriaBuilder.isNull(root.get("executor"));
+        return (root, query, criteriaBuilder) ->
+            criteriaBuilder.isNull(root.get("executor"));
     }
 }
